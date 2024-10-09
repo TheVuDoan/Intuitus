@@ -1,0 +1,5 @@
+# README
+
+```
+docker compose up
+```

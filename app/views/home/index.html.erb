@@ -1,0 +1,37 @@
+<div class="container mx-auto px-4 py-8">
+  <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Latest News</h2>
+    
+  <div class="mb-8">
+    <div class="flex max-w-md mx-auto">
+            <input 
+        type="text"
+        id="search-input"
+        placeholder="Search topics..." 
+        class="flex-grow px-4 py-2 rounded-l-md border border-r-0 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400"
+      >
+      <button 
+        id="search-button" 
+        class="px-4 py-2 bg-gray-200 text-gray-800 rounded-r-md border border-gray-300 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400"
+        onclick="performSearch()"
+      >
+        Search
+      </button>
+    </div>
+  </div>
+    
+  <div class="space-y-6">
+    <%= render "posts", posts: @posts %>
+  </div>
+</div>
+
+<script>
+  function performSearch() {
+    const keyword = document.getElementById('search-input').value.trim();
+
+    if (keyword) {
+      window.location.href = `/search?keyword=${encodeURIComponent(keyword)}`;
+    } else {
+      alert('Please enter a keyword to search.');
+    }
+  }
+</script>

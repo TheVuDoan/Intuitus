@@ -1,0 +1,3 @@
+opensearch:
+  index: 'intuitus_posts_production'
+  url: <%= ENV["OPENSEARCH_URL"] %>
